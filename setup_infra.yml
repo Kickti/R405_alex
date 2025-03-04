@@ -11,3 +11,13 @@
     ansible.builtin.package:
       name: bind9
       state: present
+
+
+- name: "Reconfiguration des VM pour utiliser les DNS internes"
+  hosts: all
+  remote_user: root
+
+  tasks:
+  - name : "Importation set_dns"
+    ansible.builtin.import_tasks:
+      file: tasks/set_dns.yml
