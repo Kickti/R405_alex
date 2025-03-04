@@ -12,6 +12,10 @@
       name: bind9
       state: present
 
+  - name: "Exec du shell"  
+    ansible.builtin.shell: date +%s&
+    register: timestamp
+
 
 - name: "Reconfiguration des VM pour utiliser les DNS internes"
   hosts: all
