@@ -1,0 +1,13 @@
+- name: "Installation de Bin9 sur les DNS"
+  hosts: dns
+  remote_user: root
+
+  tasks:
+  - name: "Update les fichers apt"
+    ansible.builtin.apt:
+      update_cache: yes
+
+  - name : "Installation Bin9"
+    ansible.builtin.package:
+      name: bind9
+      state: present
